@@ -13,3 +13,7 @@ class RegisterForm(Form):
         validators.DataRequired(),
         validators.EqualTo('confirm', message='Passwords do not match')
         ])
+
+class LoginForm(Form):
+    name = StringField("Username", [validators.Length(min=5, max=10)], render_kw={'placeholder':'Username'})
+    password = PasswordField("Password", [validators.Length(min=5)], render_kw={'placeholder':'Password'})
