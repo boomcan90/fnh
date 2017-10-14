@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+
+{% block body %}
+
+<div class="search">
+    <div class="img">FakeNews Must Die!</div>
+    <form action="post">
+        <dl>
+            {{ form.search(class_='searchField', 
+            autocomplete="off") }}
+        </dl>
+    </form>
+</div>
+{% endblock %}

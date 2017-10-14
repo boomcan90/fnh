@@ -5,8 +5,9 @@ Handling the general imports
 '''
 
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, render_template, flash, redirect, session, url_for, request, g
 from forms import *
+from flask_login import login_user, logout_user, current_user, login_required
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_login import LoginManager
@@ -35,6 +36,11 @@ from models import *
 Controller - Handling the routes.
 
 '''
+
+@lm.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
