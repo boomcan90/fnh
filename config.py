@@ -11,4 +11,5 @@ SECRET_KEY = 'insertSecretKeyHere'
 
 # connect to database
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(dirCurrent, "database.db")
-
+SQLALCHEMY_MIGRATE_REPO = os.path.join(dirCurrent, 'db_repository')
+SQLALCHEMY_TRACK_MODIFICATIONS = False
